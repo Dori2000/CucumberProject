@@ -1,0 +1,13 @@
+# Idea
+.idea/
+.gradle/
+
+# Gradle Build
+build/
+
+# Selenium
+test-output/auto_save
+test-output/cucumber-html-report/
+test-output/failure_screenshots/
+test-output/cucumber.json
+

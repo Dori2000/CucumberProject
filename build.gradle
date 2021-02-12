@@ -1,0 +1,75 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+//    dependencies {
+//        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.8"
+//    }
+}
+
+//apply plugin: "org.sonarqube"
+apply plugin: 'java'
+apply plugin: 'idea'
+
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-ext:1.7.21'
+    compile 'org.slf4j:slf4j-api:1.7.21'
+    compile 'javax.media:jai-core:1.1.3'
+    compile('com.pojosontheweb:monte-repack:1.0.1') {
+        exclude group: 'javax.media.jai'
+    }
+
+    compile 'info.cukes:cucumber-java:1.2.4'
+    compile 'info.cukes:cucumber-jvm:1.2.4'
+    compile 'info.cukes:cucumber-jvm-deps:1.0.5'
+    compile 'info.cukes:cucumber-junit:1.2.4'
+    compile 'info.cukes:cucumber-picocontainer:1.2.4'
+
+    compile 'org.seleniumhq.selenium:selenium-java:3.14.0'
+//    compile 'org.seleniumhq.selenium:selenium-parent:3.11.0'
+    compile 'org.seleniumhq.selenium:selenium-server:3.14.0'
+    compile 'org.seleniumhq.selenium:selenium-support:3.14.0'
+//    compile 'org.seleniumhq.selenium:htmlunit-driver:2.44'
+    compile 'com.github.webdriverextensions:webdriverextensions:3.11.2'
+    compile 'org.testng:testng:7.1.0'
+    compile group: 'org.seleniumhq.selenium', name: 'htmlunit-driver', version: '2.44.0'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version: '3.14.0'
+
+    compile 'javax.xml.soap:saaj-api:1.3.5'
+    compile 'org.apache.ws.security:wss4j:1.6.19'
+    compile('com.github.mkolisnyk:cucumber-reports:1.0.7') {
+        exclude group: 'xml-apis'
+    }
+    compile 'org.hamcrest:hamcrest-all:1.3'
+    compile 'com.jcraft:jsch:0.1.54'
+
+    compile 'org.apache.poi:poi:3.15'
+    compile 'org.apache.poi:poi-ooxml:3.15'
+}
+
+task cucumber(type: JavaExec, group: 'selenium') {
+    classpath = configurations.testCompile + sourceSets.main.output + sourceSets.test.output
+    main = 'MainCucumber'
+
+    def FEATUREDIR = project.hasProperty('FEATUREDIR') ? project.getProperty('FEATUREDIR') : 'src/main/resources/features'
+    def CUCUMBERTAGS = project.hasProperty('CUCUMBERTAGS') ? project.getProperty('CUCUMBERTAGS') : '@Input'
+    def OUTPUT_DIR =  project.hasProperty('OUTPUT_DIR') ? project.getProperty('OUTPUT_DIR') : new File(".").absolutePath + File.separator + 'test-output'
+    def JAVA_PACKAGE_WITH_CUCUMBER_TESTS = project.hasProperty('JAVA_PACKAGE_WITH_CUCUMBER_TESTS') ? project.getProperty('JAVA_PACKAGE_WITH_CUCUMBER_TESTS') : 'seleniumtest'
+
+    systemProperty "FEATUREDIR", FEATUREDIR
+    systemProperty "CUCUMBERTAGS", CUCUMBERTAGS
+    systemProperty "OUTPUT_DIR", OUTPUT_DIR
+    systemProperty "JAVA_PACKAGE_WITH_CUCUMBER_TESTS", JAVA_PACKAGE_WITH_CUCUMBER_TESTS
+}
+
