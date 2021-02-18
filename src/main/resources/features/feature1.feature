@@ -1,6 +1,6 @@
 Feature: 1 - Cucumber + Selenium scenarios
 
-  @Input
+  #@Input
   Scenario:Test 1
     Given the main page is opened
     Then make sure ad pop-up is closed
@@ -13,7 +13,7 @@ Feature: 1 - Cucumber + Selenium scenarios
       | List Box                |
       | Others                  |
 
-  @Input
+  #@Input
   Scenario:Test 2
     Given the main page is opened
     Then make sure ad pop-up is closed
@@ -27,7 +27,7 @@ Feature: 1 - Cucumber + Selenium scenarios
       | Ajax Form Submit       |
       | JQuery Select dropdown |
 
-  @Input
+  #@Input
   Scenario:Test 3
     Given the main page is opened
     Then make sure ad pop-up is closed
@@ -39,7 +39,7 @@ Feature: 1 - Cucumber + Selenium scenarios
     And check the following result is shown under 'Two Input Fields' panel
       | Total a + b = 50 |
 
-  @Input
+  #@Input
   Scenario:Test 4
     Given the main page is opened
     Then make sure ad pop-up is closed
@@ -50,7 +50,7 @@ Feature: 1 - Cucumber + Selenium scenarios
     And check the following result is shown under 'Single Input Field' panel
       | Your Message: test |
 
-  @Input
+  #@Input
   Scenario:Test 5
     Given the main page is opened
     Then make sure ad pop-up is closed
@@ -61,7 +61,7 @@ Feature: 1 - Cucumber + Selenium scenarios
     And click the 'Uncheck All' button
     Then make sure all options are 'unchecked'
 
-  @Input
+  #@Input
   Scenario:Test 6
     Given the main page is opened
     Then make sure ad pop-up is closed
@@ -72,7 +72,7 @@ Feature: 1 - Cucumber + Selenium scenarios
     And check the following result is shown under 'Radio Button Demo' panel
       | Radio button 'Male' is checked |
 
-  @Input
+  #@Input
   Scenario:Test 7
     Given the main page is opened
     Then make sure ad pop-up is closed
@@ -83,7 +83,7 @@ Feature: 1 - Cucumber + Selenium scenarios
       | I am an alert box! |
     Then 'accept' the alert
 
-  @Input
+  #@Input
   Scenario:Test 8
     Given the main page is opened
     Then make sure ad pop-up is closed

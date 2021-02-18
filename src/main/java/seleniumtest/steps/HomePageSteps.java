@@ -12,13 +12,12 @@ import seleniumtest.page.HomePage;
 import seleniumtest.utils.DriverUtils;
 
 import java.net.MalformedURLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class HomePageSteps {
 
-    private static HomePage homePage = new HomePage();
+    private static HomePage homePage;
     private static final WebDriverWait wait = new WebDriverWait(DriverUtils.getDriver(), 4);
 
     public HomePageSteps() {
