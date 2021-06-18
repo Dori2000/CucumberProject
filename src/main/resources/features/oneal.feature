@@ -1,6 +1,6 @@
 Feature: One Al
 
-  @Input
+  #@Input
   Scenario: Test 1
     Given one al home page is opened
     Then click on 'Llogaria ime' button
@@ -10,7 +10,7 @@ Feature: One Al
     And check the following error message is shown
       | Të dhënat e vendosura për të hyrë në Llogaria ime janë gabim. |
 
-  @Input
+  #@Input
   Scenario: Test 2
     Given one al home page is opened
     Then click on 'Llogaria ime' button
@@ -19,7 +19,7 @@ Feature: One Al
     And check the following error message is shown
       | Emri i përdoruesit është i detyrueshëm |
 
-  @Input
+  #@Input
   Scenario: Test 3
     Given one al home page is opened
     And check the following terms & conditions info is shown
