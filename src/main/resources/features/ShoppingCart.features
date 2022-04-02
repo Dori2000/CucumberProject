@@ -1,0 +1,32 @@
+#Feature: Nopcommerce Test
+#
+#  Background:
+#    Given the given page with 'https://demo.nopcommerce.com/' is opened
+#
+#  @Input
+#  Scenario: User Login Test
+#    And we click 'Log in' button from NopCommerce Login page
+#    And we enter 'user1@gmail.com' in the 'Email:' input field NopCommerce Login page
+#    And we enter 'user34567' in the 'Password:' input field NopCommerce Login page
+#    And we click 'User Log in' button from NopCommerce Main page
+#    Then check if the login was successful
+#      | Welcome to our store |
+#
+#  @Input
+#  Scenario: Shopping Cart Test
+#    And we hover over 'Shopping Cart' menu on NopCommerce Main page
+#    And we verify that 'Go To Cart' button is displayed
+#    And we click 'Go To Cart' button from NopCommerce Home page
+#    Then verify that we have navigate to Shopping Cart Page
+#      | Shopping cart |
+#    And we verify that 'Update shopping cart' button is displayed
+#    And we verify that 'Continue shopping' button is displayed
+#    And we verify that 'Estimate shipping' button is displayed
+#    And verify that the prices sum for all items is equal to total price in the end of the page
+#    And we delete item with index: '0' from shopping cart and verify it will be decreased by 1
+#    Then we delete one by one till shopping card will be empty
+#    And verify that 'Shopping Cart' on Menu bar displays '0'
+#
+#
+#
+#

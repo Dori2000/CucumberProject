@@ -62,7 +62,7 @@ task cucumber(type: JavaExec, group: 'selenium') {
     classpath = configurations.testCompile + sourceSets.main.output + sourceSets.test.output
     main = 'MainCucumber'
 
-    def FEATUREDIR = project.hasProperty('FEATUREDIR') ? project.getProperty('FEATUREDIR') : 'src/main/resources/features'
+    def FEATUREDIR = project.hasProperty('FEATUREDIR') ? project.getProperty('FEATUREDIR') : 'src/main/resources/features/NopCommerce.features'
     def CUCUMBERTAGS = project.hasProperty('CUCUMBERTAGS') ? project.getProperty('CUCUMBERTAGS') : '@Input'
     def OUTPUT_DIR =  project.hasProperty('OUTPUT_DIR') ? project.getProperty('OUTPUT_DIR') : new File(".").absolutePath + File.separator + 'test-output'
     def JAVA_PACKAGE_WITH_CUCUMBER_TESTS = project.hasProperty('JAVA_PACKAGE_WITH_CUCUMBER_TESTS') ? project.getProperty('JAVA_PACKAGE_WITH_CUCUMBER_TESTS') : 'seleniumtest'

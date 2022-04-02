@@ -1,0 +1,65 @@
+#Feature: Nopcommerce Test
+#
+#  Background:
+#    Given the given page with 'https://demo.nopcommerce.com/' is opened
+#
+#  @Input
+#  Scenario: My Account Test
+#    And we click 'Log in' button from NopCommerce Login page
+#    And we enter 'user1@gmail.com' in the 'Email:' input field NopCommerce Login page
+#    And we enter 'user34567' in the 'Password:' input field NopCommerce Login page
+#    And we click 'User Log in' button from NopCommerce Main page
+#    Then check if the login was successful
+#      | Welcome to our store |
+#    And we click 'My Account' button from NopCommerce Main page
+#    Then check if the login was successful
+#      | My account - Customer info|
+#    Then verify that all fields contain the values added from Register test
+#      | M               |
+#      | user1           |
+#      | user1           |
+#      | 23              |
+#      | 3               |
+#      | 2000            |
+#      | user1@gmail.com |
+#      | LHINDS          |
+#    And we click 'Log out' button from NopCommerce Login page
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+##Test 3 : My Account Test
+##Precondition: Log in nopCommerce Application
+##1. Click My Account - Menu
+##2. Verify we are on “My account - Customer info”-page
+##3. Verify that all fields contain the values added from Register test
+#  #- Gender
+#  #- First name
+#  #- Last name
+#  #- Date of birth (Day, Month, Year)
+#  #- Email
+#  #- Company Details
+##4. Log Out
+##5. Close Browser

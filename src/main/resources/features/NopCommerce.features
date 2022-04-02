@@ -1,0 +1,194 @@
+Feature: Nopcommerce Test
+
+  Background:
+    Given the given page with 'https://demo.nopcommerce.com/' is opened
+
+    #Test Scenario 1
+  #@Input
+  Scenario: Register Test
+    And we click 'Log in' button from NopCommerce Login page
+    And we click 'Register' button from NopCommerce Login page
+    Then check if the login was successful
+      | Register |
+    And we choose 'male' gender from radio button on NopCommerce Login page
+    And we enter 'user1' in the 'First name:' input field NopCommerce Login page
+    And we enter 'user1' in the 'Last name:' input field NopCommerce Login page
+    And we select '23' in the 'Day of Birth' dropdown in NopCommerce Login page
+    And we select 'March' in the 'Month of Birth' dropdown in NopCommerce Login page
+    And we select '2000' in the 'Year of Birth' dropdown in NopCommerce Login page
+    And we enter 'user1@gmail.com' in the 'Email:' input field NopCommerce Login page
+    And we enter 'LHINDS' in the Company input field NopCommerce Login page
+    And we enter 'user34567' in the 'Password:' input field NopCommerce Login page
+    And we enter 'user34567' in the 'Confirm password:' input field NopCommerce Login page
+    And we click 'User Registration' button from NopCommerce Login page
+    Then check if the login was successful
+      | Your registration completed |
+    And we click 'Log out' button from NopCommerce Login page
+
+
+
+    #Test Scenario 2
+    @Input
+  Scenario: Login Test
+    And we click 'Log in' button from NopCommerce Login page
+    And we enter 'user1@gmail.com' in the 'Email:' input field NopCommerce Login page
+    And we enter 'user34567' in the 'Password:' input field NopCommerce Login page
+    And we click 'User Log in' button from NopCommerce Main page
+    Then check if the login was successful
+      | Welcome to our store |
+    #And we click 'Log out' button from NopCommerce Login page
+
+
+  #Test Scenario 3
+  @Input
+  Scenario: My Account Test
+    And we click 'My Account' button from NopCommerce Main page
+    Then check if the login was successful
+      | My account - Customer info|
+    Then verify that all fields contain the values added from Register test
+      | M               |
+      | user1           |
+      | user1           |
+      | 23              |
+      | 3               |
+      | 2000            |
+      | user1@gmail.com |
+      | LHINDS          |
+    #And we click 'Log out' button from NopCommerce Login page
+
+
+  #Test Scenario 4
+  @Input
+  Scenario: Dashboard Test
+    And we hover over 'Computers' menu on NopCommerce Main page
+    Then we click 'Notebook' button from NopCommerce Main page
+    Then check if the login was successful
+      | Notebooks |
+    And choose '9' on Display dropdown
+    Then verify that only '6' items are displayed
+    And we check '16GB' on filter by attributes
+    Then verify that only '1' items are displayed
+    And we uncheck '16GB' on filter by attributes
+    Then verify that only '6' items are displayed
+    And we click 'Add to Wish List 2' button from Notebook
+    And we click 'Add to Wish List 3' button from Notebook
+    Then we verify the notification is displayed
+      | The product has been added to your wishlist |
+    And we click 'Add to Shopping Cart 4' button from Notebook
+    And we click 'Add to Shopping Cart 5' button from Notebook
+    And we click 'Add to shopping Cart 6' button from Notebook
+    Then we verify the notification is displayed
+      | The product has been added to your shopping cart |
+    And wait for notification to be invisible
+    And verify that 'Wishlist' on Menu bar displays '2'
+    And verify that 'Shopping Cart' on Menu bar displays '3'
+
+
+  #Test Scenario 5 + 6
+  @Input
+  Scenario: Shopping Cart Test
+    And we hover over 'Shopping Cart' menu on NopCommerce Main page
+    And we verify that 'Go To Cart' button is displayed
+    And we click 'Go To Cart' button from NopCommerce Home page
+    Then verify that we have navigate to Shopping Cart Page
+      | Shopping cart |
+    And we verify that 'Update shopping cart' button is displayed
+    And we verify that 'Continue shopping' button is displayed
+    And we verify that 'Estimate shipping' button is displayed
+    And verify that the prices sum for all items is equal to total price in the end of the page
+    And we delete item with index: '0' from shopping cart and verify it will be decreased by 1
+    Then we delete one by one till shopping card will be empty
+    And verify that 'Shopping Cart' on Menu bar displays '0'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #Test Register Test
+# 1. Navigoni ne : https://demo.nopcommerce.com/
+# 2. Kliko LogIn Menu
+# 3. Kliko butonin Register
+# 4. Printo titullin e faqes pas klikimit te butonit Register
+# 5. Plotesoni formen e regjistrimit
+# 6. Verifikoni qe regjistrimi u krye me sukses
+# 7. Kliko Log out Menu
+# 8. Kliko LogIn Menu
+# 9. Logohuni ne aplikacion me te dhenat qe krijuat me pare
+# 10.Verifiko qe logimi u krye me sukses
+# 11.Log out
+
+#Test 2: Login Test
+#1. Navigate to : https://demo.nopcommerce.com/
+#2. Click LogIn - Menu
+#3. Login with the credentials created from Test 1
+#4. Verify that login is successful:
+#- “Welcome to our store text” - is displayed
+#- Log out - Menu is displayed
+#5. Log out
+
+#Test 3 : My Account Test
+#Precondition: Log in nopCommerce Application
+#1. Click My Account - Menu
+#2. Verify we are on “My account - Customer info”-page
+#3. Verify that all fields contain the values added from Register test
+#- Gender
+#- First name
+#- Last name
+#- Date of birth (Day, Month, Year)
+#- Email
+#- Company Details
+#4. Log Out
+#5. Close Browser
+
+#Test 4: Dashboard Test
+#Precondition: Log in nopCommerce Application
+#1. Hover over Computers Menu
+#2. Click Notebooks
+#3. Verify that we have navigate to Notebooks Page
+#4. Choose 9 on Display dropdown
+#5. Verify that only 6 items are displayed
+#6. On Filter by attributes check 16GB
+#7. Verify that only 1 item is displayed
+#8. Uncheck the 16GB checkbox
+#9. Verify that 6 items are displayed now
+#10. Add the second and the third item on wishlist
+#11. Verify that after every item added a notification with text : The product has been added to your wishlist – is displayed
+#12. Add the fourth, fifth and sixth item on Shopping Cart
+#13. Verify that after every item added a notification with text : The product has been added to your shopping cart
+#14. Verify that Wishlist on Menu bar displays 2
+#15. Verify that Shopping Cart on Menu bar displays 3
+#16. Close the browser
+
+#Test 5: Shopping Cart Test
+#Precondition: Test 4
+#1. Hover over Shopping Cart – Menu
+#2. Verify that ‘Go To Cart’ – button is displayed
+#3. Click ‘Go To Cart’ – button
+#4. Verify that we have navigate to Shopping Cart Page
+#5. Verify that following buttons are displayed
+#6. Verify that the prices sum for all items is equal to Total Price in the end of the page
+#7. Close the browser
+
+#Test 6: Empty Shopping Cart Test
+#Precondition: Test 4 & Test 5
+#1. Delete the first item on shopping cart
+#2. Verify that the number of elements in Shopping Cart table is decreased by 1
+#3. Repeat steps 1&2 until the last item is deleted
+#4. Verify that Shopping Cart is empty
+#5. Close the browser

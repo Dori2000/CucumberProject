@@ -1,0 +1,42 @@
+#Feature: Nopcommerce Test
+#
+#  Background:
+#    Given the given page with 'https://demo.nopcommerce.com/' is opened
+#
+#  @Input
+#  Scenario: User Login Test
+#    And we click 'Log in' button from NopCommerce Login page
+#    And we enter 'user1@gmail.com' in the 'Email:' input field NopCommerce Login page
+#    And we enter 'user34567' in the 'Password:' input field NopCommerce Login page
+#    And we click 'User Log in' button from NopCommerce Main page
+#    Then check if the login was successful
+#      | Welcome to our store |
+#
+#  @Input
+#  Scenario: Dashboard Test
+#    And we hover over 'Computers' menu on NopCommerce Main page
+#    Then we click 'Notebook' button from NopCommerce Main page
+#    Then check if the login was successful
+#      | Notebooks |
+#    And choose '9' on Display dropdown
+#    Then verify that only '6' items are displayed
+#    And we check '16GB' on filter by attributes
+#    Then verify that only '1' items are displayed
+#    And we uncheck '16GB' on filter by attributes
+#    Then verify that only '6' items are displayed
+#    And we click 'Add to Wish List 2' button from Notebook
+#    And we click 'Add to Wish List 3' button from Notebook
+#    Then we verify the notification is displayed
+#      | The product has been added to your wishlist |
+#    And we click 'Add to Shopping Cart 4' button from Notebook
+#    And we click 'Add to Shopping Cart 5' button from Notebook
+#    And we click 'Add to shopping Cart 6' button from Notebook
+#    Then we verify the notification is displayed
+#      | The product has been added to your shopping cart |
+#    And wait for notification to be invisible
+#    And verify that 'Wishlist' on Menu bar displays '2'
+#    And verify that 'Shopping Cart' on Menu bar displays '3'
+#
+#
+#
+#
