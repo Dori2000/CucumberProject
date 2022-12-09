@@ -13,7 +13,6 @@ import seleniumtest.Helper.Help;
 import seleniumtest.pages.*;
 import seleniumtest.utils.DriverUtils;
 import seleniumtest.utils.WebDriverFactory;
-
 import java.util.List;
 
 public class NopCommerceShoppingCastSteps {
@@ -89,6 +88,7 @@ public class NopCommerceShoppingCastSteps {
         String actualorderTotal = orderTotal.replaceAll("[^0-9]", "");
 
         int actualorder = Integer.parseInt(actualorderTotal);
+
         int sumOfactualValue = 0;
 
         for (int i=0; i<itemPrice.size(); i++){
@@ -103,18 +103,27 @@ public class NopCommerceShoppingCastSteps {
 
     }
 
+
+
+
     @And("^we delete item with index: '(\\d+)' from shopping cart and verify it will be decreased by 1$")
     public void weDeleteItemNumberFromShoppingCart(int index) {
-        helper.deleteElementByIndex(sp.items, index);
-
         WebElement element = DriverUtils.getDriver().findElement(ShoppingCartPage.cartLabel);
         String actualString = element.getText();
+
+        helper.deleteElementByIndex(ShoppingCartPage.items, index);
+
         String actualText = actualString.replaceAll("[^0-9]", "");
         int actualValue = Integer.parseInt(actualText);
+
         String expectedText = actualString.replaceAll("[^0-9]", "");
         int expectedValue = Integer.parseInt(expectedText);
+
         if (expectedValue == (actualValue - 1)) Assert.assertEquals(actualValue,expectedValue);
-        else System.out.println(" ");
+        else System.out.println("");
+
+
+
     }
 
     @Then("^we delete one by one till shopping card will be empty$")

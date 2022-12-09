@@ -36,7 +36,7 @@ public class NopCommerceDashboardSteps {
 
 
     @And("^we hover over '(.+?)' menu on NopCommerce Main page$")
-    public void mouseHoverOverComputersMenuOnNopCommerceMainPage(String buttonName) {
+    public void mouseHover(String buttonName) {
         wait.until(ExpectedConditions.visibilityOf(mainPage.computeHoverBtn));
         Actions action = new Actions(DriverUtils.getDriver());
         if (buttonName.equals("Computers"))
@@ -98,23 +98,27 @@ public class NopCommerceDashboardSteps {
     @And("^verify that '(.+?)' on Menu bar displays '(.+?)'$")
     public void verifyThatWishlistOnMenuBarDisplays(String iconName, String displayedNumber) {
 
+
+        String actualText ;
+        String expectedText;
         switch (iconName) {
             case "Wishlist":
                 WebElement element1 = DriverUtils.getDriver().findElement(notebookPage.wishListLable);
-                String actualText1 = element1.getText();
-                String expectedText1 = actualText1.replaceAll("[^0-9]", "");
-                Assert.assertEquals(expectedText1,displayedNumber);
+                 actualText = element1.getText();
+                 expectedText = actualText.replaceAll("[^0-9]", "");
                 break;
             case "Shopping Cart":
                 WebElement element2 = DriverUtils.getDriver().findElement(notebookPage.cartLable);
-                String actualText2 = element2.getText();
-                String expectedText2 = actualText2.replaceAll("[^0-9]", "");
-                Assert.assertEquals(expectedText2,displayedNumber);
+                actualText = element2.getText();
+                expectedText = actualText.replaceAll("[^0-9]", "");
                 break;
 
             default:
                 throw new NotFoundException("Button not found!");
         }
+
+        Assert.assertEquals(expectedText,displayedNumber);
+
     }
 
     @Then("^we verify the notification is displayed$")

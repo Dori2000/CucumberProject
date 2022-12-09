@@ -13,6 +13,8 @@ import seleniumtest.utils.DriverUtils;
 import seleniumtest.utils.WebDriverFactory;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class Help {
@@ -206,18 +208,20 @@ public class Help {
 
     }
 
-    public void captureScreenshot(WebDriver driver, String screenshotName) throws Exception{
+    public  void captureScreenshot(WebDriver driver, String screenshotName) throws Exception{
 
-        String fileWithPath = "C:\\Users\\User\\SeleniumWebdriverMavenDemo\\src\\test\\java\\Screenshots\\screenshot.png";
-
+        String fileWithPath = "src\\main\\java\\seleniumtest\\Screenshots\\screenshot_"+timestamp()+".png";
         TakesScreenshot scrShot =((TakesScreenshot)driver);
-        //Call getScreenshotAs method to create image file
         File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
-        //Move image file to new destination
         File DestFile=new File(fileWithPath);
-        //Copy file at destination
-        FileHandler.copy(SrcFile, DestFile);
         FileUtils.copyFile(SrcFile, DestFile);
 
     }
+
+    public String timestamp() {
+        return new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());
+    }
+
+
+
 }

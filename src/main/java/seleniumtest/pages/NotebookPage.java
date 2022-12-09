@@ -26,6 +26,9 @@ public class NotebookPage {
     public static By cartLable = By.xpath("//a[@class='ico-cart']/span[@class='cart-qty']");
     public static By wishListLable = By.xpath("//a[@class='ico-wishlist']/span[@class='wishlist-qty']");
 
+    //list + id add to cart btn
+
+
     public void clickNotebookPageButtons(String buttonName) {
         switch (buttonName) {
             case "Add to Wish List 2":

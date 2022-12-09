@@ -4,7 +4,7 @@ Feature: Nopcommerce Test
     Given the given page with 'https://demo.nopcommerce.com/' is opened
 
     #Test Scenario 1
-  #@Input
+  @Input
   Scenario: Register Test
     And we click 'Log in' button from NopCommerce Login page
     And we click 'Register' button from NopCommerce Login page
@@ -25,10 +25,8 @@ Feature: Nopcommerce Test
       | Your registration completed |
     And we click 'Log out' button from NopCommerce Login page
 
-
-
     #Test Scenario 2
-    @Input
+  @Input
   Scenario: Login Test
     And we click 'Log in' button from NopCommerce Login page
     And we enter 'user1@gmail.com' in the 'Email:' input field NopCommerce Login page
@@ -38,8 +36,7 @@ Feature: Nopcommerce Test
       | Welcome to our store |
     #And we click 'Log out' button from NopCommerce Login page
 
-
-  #Test Scenario 3
+   #Test Scenario 3
   @Input
   Scenario: My Account Test
     And we click 'My Account' button from NopCommerce Main page
@@ -56,8 +53,7 @@ Feature: Nopcommerce Test
       | LHINDS          |
     #And we click 'Log out' button from NopCommerce Login page
 
-
-  #Test Scenario 4
+   #Test Scenario 4
   @Input
   Scenario: Dashboard Test
     And we hover over 'Computers' menu on NopCommerce Main page
@@ -84,7 +80,7 @@ Feature: Nopcommerce Test
     And verify that 'Shopping Cart' on Menu bar displays '3'
 
 
-  #Test Scenario 5 + 6
+   #Test Scenario 5 + 6
   @Input
   Scenario: Shopping Cart Test
     And we hover over 'Shopping Cart' menu on NopCommerce Main page
@@ -103,6 +99,34 @@ Feature: Nopcommerce Test
 
 
 
+
+
+  #@Input
+  Scenario Outline: Register user
+    And we click 'Log in' button from NopCommerce Login page
+    And we click 'Register' button from NopCommerce Login page
+    Then check if the login was successful
+      | Register |
+    And we choose 'male' gender from radio button on NopCommerce Login page
+    And we enter '<firstName>' in the 'First name:' input field NopCommerce Login page
+    And we enter '<lastName>' in the 'Last name:' input field NopCommerce Login page
+    And we select '<birthDate>' in the 'Day of Birth' dropdown in NopCommerce Login page
+    And we select '<birthMonth>' in the 'Month of Birth' dropdown in NopCommerce Login page
+    And we select '<birthYear>' in the 'Year of Birth' dropdown in NopCommerce Login page
+    And we enter '<email>' in the 'Email:' input field NopCommerce Login page
+    And we enter '<company>' in the Company input field NopCommerce Login page
+    And we enter '<password>' in the 'Password:' input field NopCommerce Login page
+    And we enter '<confirmPassword>' in the 'Confirm password:' input field NopCommerce Login page
+    And we click 'User Registration' button from NopCommerce Login page
+    Then check if the login was successful
+      | Your registration completed |
+    And we click 'Log out' button from NopCommerce Login page
+    Examples:
+      | firstName | lastName | birthDate | birthMonth | birthYear | email           | company  | password  | confirmPassword |
+      | user1     | user11   | 1         | March      | 2000      | user1@email.com | company1 | user1234  | user1234        |
+      | user2     | user22   | 9         | January    | 2001      | user2@email.com | company2 | user0987  | user0987        |
+      | user3     | user33   | 15        | October    | 1998      | user3@email.com | company3 | 54321user | 54321user       |
+      | user4     | user44   | 23        | June       | 1989      | user4@email.com | company4 | 7890user  | 7890user        |
 
 
 
